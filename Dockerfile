@@ -10,7 +10,7 @@ ARG runtime_deps="tini ncurses libintl gettext openssl-dev"
 RUN apk update && \
     apk add -u $runtime_deps $build_deps && \
     autoreconf -fiv && \
-    ./configure --enable-utf8 --with-openssl && \
+    ./configure --enable-utf8 --enable-geoip=legacy --with-openssl && \
     make && \
     make install && \
     apk del $build_deps && \
